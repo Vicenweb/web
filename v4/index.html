@@ -38,70 +38,6 @@
 </head>
 <body>
 
-<div id="overlay">Toca para reproducir</div>
-
-<video id="video" playsinline preload="auto">
-  <source src="video.mp4" type="video/mp4">
-</video>
-
-<script>
-  const video = document.getElementById('video');
-  const overlay = document.getElementById('overlay');
-
-  overlay.addEventListener('click', () => {
-    overlay.style.display = 'none';
-    video.muted = false;
-
-    video.play().then(() => {
-      if (video.requestFullscreen) {
-        video.requestFullscreen().catch(()=>{});
-      }
-    });
-  });
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video NFC</title>
-
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      overflow: hidden;
-    }
-
-    #overlay {
-      position: fixed;
-      inset: 0;
-      background: black;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4em;
-      font-family: sans-serif;
-      z-index: 10;
-    }
-
-    video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
-      background: black;
-    }
-  </style>
-</head>
-<body>
-
 <div id="overlay">Tercera prueba</div>
 
 <video id="video" playsinline preload="auto">
@@ -126,4 +62,5 @@
 
 </body>
 </html>
+
 
