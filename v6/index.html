@@ -2,9 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Video Vertical NFC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video NFC</title>
 
   <style>
     html, body {
@@ -15,21 +14,9 @@
       background: black;
       overflow: hidden;
     }
-
-    /* Contenedor que fuerza vertical */
-    .wrapper {
+    video {
       width: 100vw;
       height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: black;
-    }
-
-    video {
-      height: 100vh;
-      width: auto;
-      max-width: 100vw;
       object-fit: contain;
       background: black;
     }
@@ -37,21 +24,22 @@
 </head>
 <body>
 
-<div class="wrapper">
-  <video id="video" playsinline preload="auto">
-    <source src="video.mp4" type="video/mp4">
-  </video>
-</div>
+<video id="video" playsinline preload="auto">
+  <source src="video.mp4" type="video/mp4">
+</video>
 
 <script>
   const video = document.getElementById('video');
 
-  function startVideo() {
+  function start() {
     video.muted = false;
-    video.play().catch(() => {
-      video.muted = true;
-      video.play();
-    });
+    const p = video.play();
+    if (p !== undefined) {
+      p.catch(() => {
+        video.muted = true;
+        video.play();
+      });
+    }
   }
 
   video.addEventListener('play', () => {
@@ -60,7 +48,7 @@
     }
   });
 
-  startVideo();
+  start();
 </script>
 
 </body>
